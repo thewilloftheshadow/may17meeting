@@ -13,6 +13,12 @@ for file in "$AUDIO_RAW" "$CAPTIONS_RAW" "$AVATAR_RAW"; do
     echo "Missing required raw asset: $file" >&2
     exit 1
   fi
+
+  if head -n 1 "$file" | grep -q "git-lfs.github.com/spec"; then
+    echo "Raw asset is a Git LFS pointer, not the actual file: $file" >&2
+    echo "Install Git LFS, then run: git lfs pull" >&2
+    exit 1
+  fi
 done
 
 if ! command -v ffmpeg >/dev/null 2>&1; then
