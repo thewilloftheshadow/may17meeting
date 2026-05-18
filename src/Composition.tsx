@@ -85,7 +85,10 @@ const splitCaptionIntoPages = (caption: Caption): TikTokPage[] => {
   const sentenceUnits =
     text.match(/[^.!?]+[.!?]+["')\]]*|[^.!?]+$/g)?.map((part) => part.trim()) ??
     [];
-  const units = sentenceUnits.flatMap(splitLongCaptionUnit);
+  const units = sentenceUnits.reduce<string[]>(
+    (all, unit) => all.concat(splitLongCaptionUnit(unit)),
+    [],
+  );
   const chunks: string[] = [];
   let current = "";
 
@@ -164,7 +167,10 @@ const useCaptionPages = () => {
       return null;
     }
 
-    return captions.flatMap(splitCaptionIntoPages);
+    return captions.reduce<TikTokPage[]>(
+      (all, caption) => all.concat(splitCaptionIntoPages(caption)),
+      [],
+    );
   }, [captions]);
 };
 

@@ -21,8 +21,13 @@ for file in "$AUDIO_RAW" "$CAPTIONS_RAW" "$AVATAR_RAW"; do
   fi
 done
 
-if ! command -v ffmpeg >/dev/null 2>&1; then
-  echo "Missing ffmpeg. Install ffmpeg, then rerun: bun generate" >&2
+FFMPEG_BIN="$(command -v ffmpeg || true)"
+if [[ -z "$FFMPEG_BIN" ]]; then
+  FFMPEG_BIN="$(node -e 'process.stdout.write(require("ffmpeg-static") || "")')"
+fi
+
+if [[ -z "$FFMPEG_BIN" || ! -x "$FFMPEG_BIN" ]]; then
+  echo "Missing ffmpeg. Run bun install, then rerun: bun generate" >&2
   exit 1
 fi
 
@@ -30,7 +35,7 @@ mkdir -p public out
 
 cp "$AVATAR_RAW" public/avatar.png
 cp "$CAPTIONS_RAW" public/craig-captions.srt
-ffmpeg -y -hide_banner -loglevel error -i "$AUDIO_RAW" -c:a copy public/craig-audio.m4a
+"$FFMPEG_BIN" -y -hide_banner -loglevel error -i "$AUDIO_RAW" -c:a copy public/craig-audio.m4a
 
 echo "Assets ready. Rendering CraigMeeting to out/may17meeting.mp4"
 echo "Tip: pass Remotion flags after --, e.g. bun generate -- --frames=0-299"
