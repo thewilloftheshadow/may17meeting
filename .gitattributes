@@ -1,0 +1,5 @@
+raw/*.webm filter=lfs diff=lfs merge=lfs -text
+raw/*.mkv filter=lfs diff=lfs merge=lfs -text
+raw/*.zip filter=lfs diff=lfs merge=lfs -text
+raw/**/*.aac filter=lfs diff=lfs merge=lfs -text
+raw/**/*.dat filter=lfs diff=lfs merge=lfs -text

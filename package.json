@@ -6,11 +6,12 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@remotion/captions": "4.0.462",
     "@remotion/cli": "4.0.462",
+    "@remotion/tailwind-v4": "4.0.462",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.462",
-    "@remotion/tailwind-v4": "4.0.462",
     "tailwindcss": "4.0.0"
   },
   "devDependencies": {
@@ -25,7 +26,8 @@
     "dev": "remotionb studio",
     "build": "remotionb bundle",
     "upgrade": "remotionb upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "generate": "bash scripts/generate.sh"
   },
   "sideEffects": [
     "*.css"

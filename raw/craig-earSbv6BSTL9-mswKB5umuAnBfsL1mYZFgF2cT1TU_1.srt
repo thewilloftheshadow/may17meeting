@@ -1,0 +1,707 @@
+1
+00:00:00,850 --> 00:00:06,810
+Shadow: I don't know if I'm now recording, or however Craig says it. Hello, everybody.
+
+2
+00:00:08,930 --> 00:00:14,310
+Shadow: CS Chat has a message saying, welcome, Craig, to the community staff team. That's funny.
+
+3
+00:00:21,900 --> 00:00:26,180
+Shadow: Luckily, you don't have to consent because I'm the one being recorded. Get rekt.
+
+4
+00:00:28,200 --> 00:00:35,220
+Shadow: Cool. Hi, everyone. Welcome to the mandatory monthly MaybeMod meeting today.
+
+5
+00:00:37,540 --> 00:02:48,980
+Shadow: Going over a lot of updates on things that have changed, things that are in the process of changing, new systems that will be implemented over the next couple of weeks. And then at the end, we will have some Q&A time as well. Go ahead and submit your questions as we go along using the link that's at the top of the slides there. And then it is also in the chat itself. That'll just help us keep questions organized instead of reading off randomly from the chat. So you can drop all your questions there as we were going. Quite literally, the only part of Google Slides that I like. The whole editor is so laggy on my computer. Which is why we also have an Excalibur tab for a lot of this. Okay. So to get started, I just wanted to give you guys an update a couple of weeks ago when the Discord server was terminated and what went back and forth with the team. It was about 2 in the morning when it got terminated for me. But I happened to be awake because I was on a flight. So myself and Vincent and a couple of people from the NVIDIA staff were in an iMessage group working back and forth trying to get it resolved. I got a response from the Discord CTO. He stepped in. He got us reactivated while they finished their investigation. And that was when the Discord server was reinstated. Fortunately, neither myself or Peter ever got a full response back on what happened. I had the support ticket for it. So what I got the response said, Hello. Thanks for writing in. We've looked into this and can confirm the owner's account was not compromised. The server and Peter's account were briefly affected by one of our safety systems in error. After further review, we fully restored both the server and the owner's account. Everything should be back to normal. We sincerely apologize for the disruption and any concern that's caused your community. Sincerely, Discord, trust, and safety. And we haven't heard a single thing since then.
+
+6
+00:02:51,560 --> 00:03:30,500
+Shadow: So that is all we know. That's pretty much all we're ever going to know. And so that's pretty much it. I found out the reason that the bots were affected afterwards was because every bot has two halves. It has the half with the actual bot that sends the messages, and then it has the half that runs the slash commands. All of the slash command data got cleared out of the server, but the bots were still in the server. And so they were in a broken state, and I had to go and reactivate every single bot to get the commands working again. So that's what happened there.
+
+7
+00:03:33,720 --> 00:04:30,860
+Shadow: And the backup server that we have, we're going to keep it around, and it is going to stay as a backup server. No, the slides aren't supposed to be changing. I didn't make a slide for this. We're going to keep the backup server around. It's going to stay being a backup server that the public can be in, just with no writable channels. And it's just going to be just in case. We, the maintainers, also have a separate product called ClickClack that we have created just for ourselves that we can pivot to when needed. And then as the foundation, we also have a Slack for foundation employees. So plenty of backup systems set up. We're not worried about what will happen if the server gets terminated again, things like that. So we should be good. And we don't think that it will happen again, but, you know, just in case.
+
+8
+00:04:33,480 --> 00:05:34,620
+Shadow: Cool. Next, I want to talk about the section that I have titled foundation, the code, the community, the relationship. This came to me, I don't know, it sounded cool enough. TF, CCR. Why not? If you know me, you know I like alliteration stuff. For instance, the mandatory monthly maybe mod meeting. So, for those, just to get us all on the same page, the foundation, the OpenClaw Foundation, is the organization that is handling all of the employment, all the legal side, all the business side of OpenClaw, the project. It is a fully independent nonprofit foundation. And then the different companies that are sponsoring us sponsor the foundation. And then the foundation owns the OpenClaw project, as well as all of its sub projects, which, gosh, there's probably like 50 of them now. And then a lot of Peter's smaller tools have been sent into it.
+
+9
+00:05:37,200 --> 00:06:06,560
+Shadow: So, just so you guys are aware, OpenClaw.org is our official website, and it is the website for the foundation. There were a couple people who already found this, and were thinking, oh, this is some, like, scam website, or somebody trying to bridge off of it. That is the official foundation website. So, the foundation is handling all of that so that the maintainer team and the other teams can focus on the actual product themselves.
+
+10
+00:06:08,660 --> 00:08:25,900
+Shadow: No, don't, I did not click that. Go back. Thank you. So, you may see some maintainers are full-time with the foundation. Other maintainers are volunteering their time. And even other maintainers are sent by companies to help. Like, we have people from NVIDIA that help with the security side. We have people from OpenAI who are joining in and helping. So, no single company ever controls OpenClaw. That is the point of the foundation. Even with something like Peter working at OpenAI, the foundation is the one that controls OpenClaw, and it has an independent board. And so, there are a lot of companies that are contributing. I have the list written down somewhere, but it's become so many that I can't remember them all now. So, we're very excited about the future, and the foundation is what is protecting that. So, the second part of that, the code. All of our code, no matter what, is open source, and it is in the OpenClaw organization on GitHub, including all of the separate tools we make. The only things that are in private repositories are things like security fixes that we are still working on, will sometimes be in a private repository, and then some internal maintainer workflows for things like releasing credentials for, like, signing the Mac app, things like that are in a private repository. Everything else is completely free and open source under the MIT license. So, the third thing is the community. We have a community that's formed in several places right now. We have this Discord community, which I hope you all know what that is, because you are literally inside of it right now. Inside of it right now? Yeah, sure, whatever, we'll roll with it. So, we have the Discord community, we have the Reddit community, r slash OpenClaw, and we have the Reddit community, r slash ClawedBot, which are both controlled by us as well. Those are the three that are officially run by us. There are others that are supported by us that we aren't against by any means, but they aren't fully 100% controlled by us, and so, sorry,
+
+11
+00:08:43,640 --> 00:11:03,440
+Shadow: I had a coughing fit. My throat is very dry from talking all day. So, those are the main communities that are official. There are other ones that are unofficial that we fully support, and perhaps one day we'll bring into the quote-unquote official ecosystem. And then the relationship. This is something I want to talk about a little bit more, and it's something that's going to be evolving very specifically over the next couple of weeks, is where do all of those different realms interact? So, the foundation has their own separate flack that they do all of their internal stuff in, and the Discord is both for maintainers to work in, both full-time and volunteer, and then for the community. As it stands right now, the community's focus, or when I say community, I'm going to restate that, the Discord's focus is on primarily support and helping people with their claws. So, whether that be through Krill in the help channel, whether that be through users helping users, channels like the channels channel, the apps channel, even with Nix, we have the golden path deployments channel talking about different models, and then the claw hub side with the claw hub channel, and then the plugins and skills channels. So, those are the current primary focus of this Discord server. Not to say it's the only focus, we also have some very specifically, traditionally community aspects. The biggest one among those that everybody sees is the weekly claw, that is hosted every, I have no more calendar anymore, I think it's every Friday now. Back when I started, it was on Saturdays. But that's hosted by Andy, and then the people that he works with. And then we also have things like voice channels available to users, we have the general chat, we have our channels that are just for talking about different models. And so, those are things that we're looking at, at bringing out more within the community. And so, that's where the Discord server currently stands.
+
+12
+00:11:05,640 --> 00:11:43,760
+Shadow: So, that's what, and I'll revisit this later as well. Before then, the next thing that I want to do is go ahead and show this question. What is the business related to the foundation? By that, I mean literal, like, business-y things, like, you know, payroll, or the sponsorships that are monetary from companies, the GitHub sponsors, things that you think of when literally you mean business. That is what the foundation manages, as well as the board with the foundation. So, when I mean business, I'm talking about literally, like, corporate business-y things.
+
+13
+00:11:48,140 --> 00:13:31,600
+Shadow: I love the question setup. Yes, the board is official. The foundation is fully up and running. Several of the maintainers are working full-time at there right now. And it's, like, fully up and going, which is part of why we've been able to get so much more into automation and getting good workflows for the maintainer and engaging in the contributor's channel and things like that is because the foundation setup is complete and they're running, they're currently doing hiring processes right now. Okay. Next, I'll talk about things that have already changed in the last couple of weeks as a recap to get everybody on the same page. The first one that is one that's pretty obvious for the moderators is that the self-promotion channel is completely closed. All the messages are still there, but it is archived right now. I think only myself and Peter and Pash can see it, but, like, I can go back if we have to, but otherwise it is closed. In its stead, the showcase channel has been revamped to now be a form channel where each post in the form is its own project and people can post there. I have the slow mode for it set for the maximum that Discord allows, which is six hours in between posts, but within posts there is no slow mode. People can chat as much as they want. And then, I'll leave it right there for now. The next is the roles in the server right now. I want to recap just so everybody is aware of the different roles in the server because I realize we don't have a full place that you guys can see that.
+
+14
+00:13:34,520 --> 00:16:56,280
+Shadow: Just go up to the top. Okay, so, in Discord, roles are a hierarchy. The ones that are above can manage the ones that are below. Jason, you can see that. Not every community staff can because the helper team can. So, we have Discord admin, which is me. We have the configurator team that is managing things like bots, the actual physical permissions for things. We have three maintainer roles. We have the lead maintainers. We have maintainers and we have maintainer guests. Then, the difference between these, maintainer is the main group. Everybody in here is working on either OpenClaw itself or one of its associated projects. Lead maintainers are a set of maintainers that can do things like ping the beta pings role, ping the different announcement channels, things like that. So, they have more permissions within the server. And then, the maintainer guest role is people who we want to have in the maintainer channels but not necessarily either don't want to or we don't need them to become a maintainer. These are things like Kidzy is in here, for example, because he's been a supporter of OpenClaw literally since day one. People like that that we want to have in these channels. Then, after that, we have the rest of the community staff. We have the team leads who are leading, each of them leads an individual team. We have the helper team who is maintaining the Claw Tributors channel, the help channel, then things like that. The voice chat team and the Discord team which are being combined into just the moderation team. And then, we have just the miscellaneous people who are in the community staff channels as well. Going after that to the more public roles, the Automob Bypass role lets people bypass things like the Crypto Automob. It lets them have image perms and poll perms and things like that. The representative's role is for people who are here on behalf of a large project or a company. And that's just a role so we can differentiate them as being official and not have to deal with, oh, is this person actually a jitter? Are they impersonating somebody? So we have the representative's role for that. And that's just manually given by me when we have somebody that the maintainer team is working with. There's also the Open Router team who is a part of the representatives but we have them separated out just because there's so many of them. The co-attributors role, anybody who has emerged, they either commit that the maintainers are taken over or emerged PR and with, like, I think two or three people who have this separately for special reasons. We have the Shell Society which is a small group of members that, for lack of a better word, it's the end club. It's a private community of people that are actually fully wanting to engage well with Open Claw. It's a place where the maintainers can jump in and have a casual chat without the chaos of general. We have trial moderators which is just, you know, trial moderators. And then we have these self-assignable roles. Server announcements, releases, events, and beta pings as well as my, you know, I want to ping 18,000 people for something random that's on my mind. We have that as well.
+
+15
+00:16:58,700 --> 00:17:07,100
+Shadow: And so these five are the ones that everybody can claim. And then everything below that is just utility roles to manage permissions and stuff for the server.
+
+16
+00:17:09,300 --> 00:17:35,060
+Shadow: So those are the roles in the server right now. And then for the Clawtributor role specifically, we have the new slash claim system where people can request the Clawtributor as well. It will gather their PRs that they have and it will put them on a list that the helper team can confirm or deny. Anybody can confirm or deny that. It's just the responsibility of the helper team. And they're the ones who get the actual ping for it.
+
+17
+00:17:42,410 --> 00:17:54,090
+Shadow: Cool. So let's talk about some more things. that we have. And this is where the Scala draw comes in because I got really tired of building slides.
+
+18
+00:17:56,620 --> 00:18:19,920
+Shadow: So everything I just told you about the different community staff teams and how they work is how they currently work. However, that is going to be changing sort of. right now we have the oh gosh. I should not have used the touchpad for this moderation team.
+
+19
+00:18:25,420 --> 00:18:26,400
+Shadow: The helper team.
+
+20
+00:18:34,770 --> 00:19:55,620
+Shadow: These are the teams we have right now. The moderation team, the helper team, and the configurator team. This is the system that we started a couple months ago when the Discord was exploding and we were onboarding people rapidly in order to help limit the permissions of what people had and in order to help focus everybody on specific parts of the server. However, over the last month or so, as the team has gotten more comfortable with working with each other and working on the server, these lines have kind of blended. And so what we're going to do is we're going to do two changes. One, we're going to condense everything down to just two teams, which is the moderation team and one lineup. There we go. Moderation team and the helper team. The configuration team role is going to be removed and it's just going to be a bot manager role that certain people have in addition, but it's not going to be its own team and they're not going to do any specific work. They just have permission to get to the different bot dashboards. As part of this, you might think, well, what about the other team leads? That is also going to be changing from the current team lead system. Instead, we are just going to have what will be called lead.
+
+21
+00:19:57,710 --> 00:19:59,790
+Shadow: Oh, that's a throwback right there.
+
+22
+00:20:01,990 --> 00:20:17,490
+Shadow: Clever and Claude repository. I started when it was Worley, fun fact. My PR was when it was Worley and then it became a maintainer at Claude's base. Good times. Good times. There's so many people who didn't even know that there were any other names now besides OpenClaw. It's crazy.
+
+23
+00:20:21,970 --> 00:20:34,970
+Shadow: So, we'll have the moderation team and we'll have the helper team and then we have just leads. Come on. Diamond. So, the different leads will be Discord. Oh, man, I have to expand it.
+
+24
+00:20:37,710 --> 00:20:37,970
+Shadow: Reddit.
+
+25
+00:20:43,100 --> 00:20:44,760
+Shadow: Oh, I forgot what I named this one.
+
+26
+00:20:47,110 --> 00:20:52,810
+Shadow: It's the replacement for the helper team. I'll just put helper for now. Everybody knows what that is.
+
+27
+00:20:58,340 --> 00:21:00,440
+Shadow: We will have these four team leads.
+
+28
+00:21:04,090 --> 00:21:22,870
+Shadow: There we go. So, these will just be leads. They are going to lead different parts of the community but we aren't going to have any specific here's your team, these are the people you manage, this is your split off area. Instead, the entire community staff team will work with all of these different areas.
+
+29
+00:21:24,950 --> 00:21:36,710
+Shadow: So, Discord is going to be led by me for now. That is changing soon. Hint, wink, yeah. Does anybody want to guess who's going to take over the Reddit lead?
+
+30
+00:21:43,360 --> 00:21:46,140
+Shadow: Ding, ding, ding, ding, ding, ding, Jordan got it right. I'm so shocked. Wow.
+
+31
+00:21:48,980 --> 00:22:03,080
+Shadow: Events will be Andy and then helper will be Julian. So, these, who the people are, aren't changing very much except for the Discord one. But, the way that the leadership structure is going to be structured is changing.
+
+32
+00:22:05,320 --> 00:22:15,520
+Shadow: So, moderation and helper, who will be in the shadow of shadow? You shall see. They haven't answered my DM yet about it. So, one day.
+
+33
+00:22:17,870 --> 00:22:24,990
+Shadow: And then the bot managers will just be an extra little separate tag. I guess technically you can think about it as multiple leads.
+
+34
+00:22:27,660 --> 00:22:43,560
+Shadow: Cool. So, this is how the new teams will be structured. In a couple hours, I'll be updating this in a PR on the community repository, as well as a couple more lead spots that will be added in the future. So, keep an eye on that.
+
+35
+00:22:46,610 --> 00:22:57,230
+Shadow: I need to see if this is important. Somebody DM'd me. Oh. They literally just pinged me in the DM and said nothing. Cool. Close. Close. Close.
+
+36
+00:23:00,280 --> 00:23:01,200
+Shadow: Close. Close. Close.
+
+37
+00:23:04,440 --> 00:23:09,980
+Shadow: Close. Close. Now that we've talked about how the things are and the very immediate changes,
+
+38
+00:23:12,140 --> 00:23:22,040
+Shadow: I want to say something. And from here on out, don't take any of this as mean. Shut up, stop doing things, don't do anything dumb, no bad.
+
+39
+00:23:25,160 --> 00:24:40,700
+Shadow: This is very much a let's focus attention kind of thing. So, there are three teams as I said right now. There's the foundation themselves and the employees. There's the maintainers, both paid and the volunteer staff, and then there is our community staff. So, right now, what I'm working on with the foundation is formalizing the community staff as another volunteer team with the foundation. and the community repo will be updated with all of this and have a clear support and clear diagram of the community staff is supporting the foundation, but not necessarily representing the foundation. It's a volunteer team of people who love the community and are supporting it in that way. But as part of that, we're looking at growing the team, especially on the helper side, because right now there is one person who is just a helper, plus JSON who is a helper and maintainer now. So, we'll be growing the team in that way. But, right now, it's BWAPAY. B-U-A-P-A-Y. BWAPAY.
+
+40
+00:24:43,720 --> 00:25:45,920
+Shadow: So, as part of that, we're going to put on pause any external outreach programs for a week or so until I get a formal definition down with the foundation of where we can represent OpenClaw directly, where it's more of a this is just for the Discord, for things like the weekly Claw. And then once I have that definition, we're going to have a new channel alongside the current moderation ones like that, specifically for different outreach things that we can do, such as the hackathon that was in there earlier is a good example of one. Somebody else will definitely have to lead that up. I very much dislike hackathons in the AI age because they always are full of people who pretend to be really good and there's never anything but a bunch of slop. So, somebody else is welcome to lead that. And again, I'll have clear definitions of that in the future.
+
+41
+00:25:52,920 --> 00:26:07,060
+Shadow: So, yeah, y'all hang on for that. Temporarily going to put that on pause and then stand by for more specifics on where we can do what we can do. Excuse me, if you're going to say PaulDevs, you have to do it right. It had two L's.
+
+42
+00:26:09,780 --> 00:26:10,140
+Shadow: Get it right.
+
+43
+00:26:15,680 --> 00:26:37,660
+Shadow: PaulDevs was the original name for Boape, which is the company that I run. That's Leap and Strife, I'll work there. When it's open call, becoming a subsidiary of Bobbysuse. I offered to buy OpenClaw. I put in a whole $30 and they decided to go with somebody else being the foundation. So, it was worth a try.
+
+44
+00:26:43,660 --> 00:28:31,500
+Shadow: Last thing that's scripted that I want to tell you about scripted, last thing that's in my note, is a couple of new tools that are being worked on, just so you guys are aware and you're ready for them. First one is Hermit is going to be getting a feature where whenever somebody sends a link to a GitHub issue or a GitHub PR, it will share the title and it'll give some of the labels like whether or not Claw Sleeper is working on it, whether or not it's been closed, things like that. So that is being created right now to assist when people just send a link to a PR. Babblefish, which is the bot that was formerly running our international channels and doing translation, has been deprecated and it'll be replaced by Krill or more accurately it will be another agent within Krill's gateway using the Krill account. So it'll just have its own separate workspace and that is going to be doing the translation from now on and we'll be adding a couple of more language channels. So as part of that, good timing Jordan, very good timing. Yeah, we're going to be adding a couple more language channels. So as part of that, I'm going to be getting a list of people who do natively speak the other languages as well as encourage the entire community staff team to be able to check in on the channels just like they do things like the general channel because again, there will be translations there. So I don't want to add every single language. We do currently have a list of languages that OpenClaw supports within its documentation specifically. And so if it's not in the documentation yet, I don't want to add a channel here yet. However, our documentation, we can add more languages fairly easily.
+
+45
+00:28:33,700 --> 00:28:41,140
+Shadow: So yeah, International Channel revamp is coming. I'm going to open a CS Project thread about that with the list of things that we're going to do.
+
+46
+00:28:43,500 --> 00:29:41,080
+Shadow: And then Krill is going to be changing how its permissions are right now. So right now, Krill has very specific channels channels that it can speak in, which is off the top of my head, the main channel, Contributor, Shell Society, a bunch of our CS channels in general, but not everybody can ping it in those. And then of course, you know, the help channel. So what's going to be changing is there's a feature that actually I added months ago where it can be role-based. So every single community staff will be able to trigger Krill across any channel by pinging it. Now I want to be clear with this. This isn't like, hey, y'all can go chat with Krill whenever you want. Do whatever, yada, yada, yada, yay, have fun. It's more of a, if somebody comes in and has an issue or has something, you can ping Krill in to help you. But, like, you know, don't go wild on it.
+
+47
+00:29:47,430 --> 00:29:54,010
+Shadow: So yeah, it's going to be available to anybody who is on community staff. So, yeah, don't abuse it.
+
+48
+00:29:56,630 --> 00:29:59,950
+Shadow: Jason, we're on it already. Hit that drink.
+
+49
+00:30:02,850 --> 00:30:14,710
+Shadow: I think those are all of the very immediate tools. They're going to be changing. So just keep an eye on that. Flawd can go kill himself and jump off of three 20-foot story bridges.
+
+50
+00:30:17,370 --> 00:30:17,750
+Shadow: Yeah.
+
+51
+00:30:20,060 --> 00:30:40,560
+Shadow: Flawd has been nothing but a pain in my butt. And, okay, to be clear, it was the former Flawd. The Flawd, as y'all know, it doesn't exist anymore. Just an FYI. This is actually good. I'll tell y'all the different crustacean bots that we have now because there's a lot. As you can see, our wreath has expanded.
+
+52
+00:30:43,020 --> 00:32:28,780
+Shadow: So, it's Clawd. So, we have Barnacle, which is managing the actual moderation that we have and the different commands for that. It is not an open Clawd agent. We have Hermit, which is our custom bot to do the very custom things. It's written by me. It's on CloudBot workers that me and Julian have access to. It is also not an open Claw bot. All of the rest of these are open Claws. So, Clawd is the bot for the foundation. It's their personal open Claw to work with. Claw sweeper, you may have seen on the GitHub repo, is doing a lot of the automated QA and rebasing and merging. Clawd is just used right now to run the tests and make sure that Discord is still working. It's not really used anymore because we've replaced that with the new system. Krill is, like I said, it's the community staff bot and it is the help bot. Mantis is running a lot of our QA as far as like, here's a PR, spin up an entire virtual machine, set up an open Claw, run it in Telegram, run it in Discord, give the results. Mantis is running a lot of that. You may see it a lot on Telegram. Specifically, it'll generate videos for us for different PRs. Multi is Peter's personal open Claw assistant who also works with the maintainers and the maintainer channel. And then Tideclaw is the newest one who is managing alpha and beta releases, being able to automate those more often. So, lots of different bots here. Most of them are in the maintainer channel, but just so you guys are aware because they do show up in the member list everywhere.
+
+53
+00:32:36,460 --> 00:32:39,480
+Shadow: No comment there. Those are the crustaceans.
+
+54
+00:32:42,720 --> 00:32:45,880
+Shadow: Cool. I'm going to go through a couple of questions right now.
+
+55
+00:32:48,100 --> 00:33:12,760
+Shadow: Put this back on here. Who's in the board of the foundation? To be announced. Coming soon. You shall see. Soon. I don't know if we'll super announce it publicly. Here are all the people. But with the foundation, the community staff changing, that will be shared with you. I am not on the board at the foundation. No.
+
+56
+00:33:15,970 --> 00:33:22,130
+Shadow: Will we also get paid? No, unfortunately. Community staff is very much a volunteer position.
+
+57
+00:33:24,250 --> 00:33:28,210
+Shadow: Not even all the maintainers are paid. Like I said, a lot of them are volunteering their time as well.
+
+58
+00:33:33,720 --> 00:33:47,640
+Shadow: To be clear, the foundation has employees that aren't specifically the board. The board is a very small group of people who are managing the overall direction. There are other employees as well.
+
+59
+00:33:50,070 --> 00:34:04,650
+Shadow: Will the foundation ever have a physical office? I highly doubt it. All the current people are spread across everywhere. So they might do the whole thing of we have a mailing address office kind of thing. But no. Otherwise.
+
+60
+00:34:07,290 --> 00:34:09,370
+Shadow: Another who's in the board of the foundation.
+
+61
+00:34:12,370 --> 00:34:15,030
+Shadow: Oh, I scrolled down. There's so many more questions.
+
+62
+00:34:17,660 --> 00:34:54,100
+Shadow: I'll do this one. What are the upcoming development projects for OpenClaw as a whole? Right now it is OpenClaw. That is our primary project. That is what we're focusing on the most as well as Claw Hub itself. There are a lot of smaller things that we spin up. For instance, Claw Sweeper, ClickClack, different CLIs and plugins that we build for OpenClaw. But there aren't any big overarching projects that are planned to come to replace OpenClaw as the primary focus. We do have QA tools that we've been building a lot, such as Crabbox.
+
+63
+00:34:56,800 --> 00:35:31,360
+Shadow: I don't remember the actual website of it. Yeah, here it is. Crabbox, which is the tool that lets us spin up ephemeral machines to run tests on. All the maintainers have access to this for free, so we can spin up machines on AWS or Hetzner or Google Cloud or Azure. And then we can run a lot of our testing on there and agents can automate it easily. So they have been building out this tool. So there's different things like that, but those are built to their open source. Anybody can use them. Anybody can run them for themselves, but they're built for the maintainers to use.
+
+64
+00:35:33,520 --> 00:35:34,040
+Shadow: So yeah.
+
+65
+00:35:36,240 --> 00:35:37,200
+Shadow: More questions.
+
+66
+00:35:42,440 --> 00:36:11,600
+Shadow: Are sponsorships going anywhere with the foundation existing? Assuming you mean like GitHub sponsors, no, that money goes to the foundation. That's part of the purpose of the foundation. If you mean business sponsorships, that's also what the foundation is handling. Instead of just before it was going technically directly to Peter, the nonprofit foundation is what is managing that.
+
+67
+00:36:16,330 --> 00:36:16,950
+Shadow: Bye.
+
+68
+00:36:23,610 --> 00:36:32,610
+Shadow: Where did the GitHub moderation team and channel go? What do you mean? Is it not right here? Oh, I bet y'all lost permissions to that.
+
+69
+00:36:37,360 --> 00:36:38,820
+Shadow: I need to fix permissions there.
+
+70
+00:36:41,160 --> 00:37:19,320
+Shadow: So I guess this is a two-part answer. One, oops, I didn't know that channel was hidden. My bad. And two, it's not a full team like we're talking about. We just have the moderation helper team now. It's more of a second elevated permission like the bot manager. So I'll make sure to put that in the diagram as well and fix the permissions on that channel. All community staff have access to that channel. Supposedly, that's the point. And y'all can drop links in there and then people who have that tag will be able to handle that. Because not even maintainers have a lot of the moderation permissions. It's very much a zero-trust setup.
+
+71
+00:37:21,420 --> 00:37:23,420
+Shadow: Sorry, remind me to fix that in like an hour. Thank you.
+
+72
+00:37:28,010 --> 00:37:35,870
+Shadow: Anyone want to start a GoFundMe for the community staff accepting donations and crypto? I'm sorry, crypto is against the rules. I'm going to have to ban you now. Thank you.
+
+73
+00:37:41,430 --> 00:37:52,970
+Shadow: I won't say like, you know, don't shill your GoFis or your GitHub sponsors or anything, but I'm not going to stop you from putting in your bio or things like that. So, you know,
+
+74
+00:37:58,540 --> 00:38:00,880
+Shadow: it's hard to sort between already answered ones.
+
+75
+00:38:03,410 --> 00:38:45,010
+Shadow: We're going to have the guidelines from the foundation on how we navigate sponsorship offers. Yes! Part of it is if you are the one who is, and I'll document this all fully for y'all as well, if you are the one who is offering the sponsorship or you are representing a company, then we'll put you in touch with somebody at the foundation. Otherwise, there's an email that I'll list that they can contact and work with the OpenClaw Foundation to officiate that and contracts and all of those things. So, yeah, when people come into the server, we'll have a way or a place to direct them. And I'll list that up for you guys.
+
+76
+00:39:02,050 --> 00:39:04,510
+Shadow: One second. I'm checking on something for y'all.
+
+77
+00:39:15,790 --> 00:39:17,950
+Shadow: I'm looking to see how many GitHub sponsors we have right now.
+
+78
+00:39:21,340 --> 00:39:44,820
+Shadow: Fun fact, I was the one who set up the GitHub OpenClaw sponsors page and it took me way too long to think about creating all of these names. I gave up and made Krill do it. Actually, no, I think Multi did it. Fun fact. And it was like a one-off quake, let's get something going. And it's stayed ever since then. So,
+
+79
+00:39:47,380 --> 00:39:48,440
+Shadow: don't fill up my health screen.
+
+80
+00:39:55,780 --> 00:40:19,280
+Shadow: What about launching a Twitch YouTube channel? Twitch, I don't really know about right now because that's there's a whole thing there on like, I won't go into it. Twitch, maybe. YouTube, we are going to start creating a YouTube for the OpenClaw community for things like recordings of events, recording of the weekly call, things like that.
+
+81
+00:40:21,340 --> 00:40:45,020
+Shadow: It already exists, it's just not public yet and it hasn't had uploads yet, but that is coming. And different events, things, different videos, things like that. Less of a like marketing promotional videos, right now. More of like a streaming events, recording events, posting VODs and things like that.
+
+82
+00:40:47,220 --> 00:40:57,760
+Shadow: Especially on the streaming things like the weekly claw. And I have a tool built with Hermit to be able to bring those chats into the weekly claw chat as well.
+
+83
+00:41:01,750 --> 00:41:18,390
+Shadow: Don't give multi-permissions to the YouTube channel. Krill will have permissions to the YouTube channel. Maybe not Krill. There will be an agent that has permissions to it. I just have to finish getting that set up officially under the foundation instead of, oh, here's just on my account.
+
+84
+00:41:24,230 --> 00:41:25,470
+Shadow: Give flawed the YouTube.
+
+85
+00:41:29,600 --> 00:41:34,120
+Shadow: What could go wrong? Let me make a poll for that right now.
+
+86
+00:41:44,820 --> 00:41:48,020
+Shadow: Here is the poll on whether or not we should give flawed the YouTube channel.
+
+87
+00:41:56,780 --> 00:41:58,600
+Shadow: Oh wow, so many people voting yes.
+
+88
+00:42:11,050 --> 00:42:20,190
+Shadow: There's, okay, I say the Google Slides question things are great. It never sorts them. It's sorted by upvotes, not how many I've answered.
+
+89
+00:42:25,240 --> 00:42:49,720
+Shadow: Here, we'll do this one. How do we find the current positioning of community staff relative to OpenClaw? If they continue driving initiatives, what level authorization and support will be needed? Ooh, will be provided. At a minimum, we need a negative list or clear red lines to establish operational boundaries. So right now, at this very moment, y'all have basically nothing. You have the little bit that myself and Peter can provide.
+
+90
+00:42:56,440 --> 00:43:20,960
+Shadow: So, nothing right now. That is part of what the upcoming work with myself and the foundation is going to provide you, is give you both a way to independently do things, do things with the team, as well as get support from the higher ups, being myself, being the foundation, to assist in that more officially.
+
+91
+00:43:24,400 --> 00:43:43,020
+Shadow: If you mean Claw's on, do you mean Clawcon? Clawcon is unofficially, it's not run by the OpenClaw foundation, it's run by somebody outside, but we support it and we enjoy it, we go to it, but it's not run by the foundation.
+
+92
+00:43:45,860 --> 00:43:51,120
+Shadow: So, this is part of what I'm going to be getting you over the next couple of weeks.
+
+93
+00:43:57,710 --> 00:43:58,150
+Shadow: Refresh.
+
+94
+00:44:03,420 --> 00:44:38,400
+Shadow: Moving forward, what is the relationship structure among the community, the foundation, and the maintainers? What would the collaboration model actually look like? Part of it you've already seen with the community and the maintainers. The maintainers are becoming more active in working with people, chatting about their PRs, and things like that. So, it will become a lot more like that. A lot less of, oh, there's the mysterious maintainers and the mysterious foundation out there somewhere, and they kind of do things probably. It's going to be a lot more collaborative and a lot more working together on things. What...
+
+95
+00:44:43,770 --> 00:44:44,550
+Shadow: else do we have?
+
+96
+00:44:58,380 --> 00:45:54,260
+Shadow: Critically, what are the primary challenges and the core objectives currently facing OpenClaw? Stability. It's something that we're working on, we have a plan for, like it's not something we're concerned about, oh shoot, we still got to do this. But it is something that takes time, working on setting up the more, the alphas versions, the beta versions, the release versions. Right now we're doing a lot of betas. Alphas will be a nightly build, I believe. Yeah, I think it's a nightly build. So, working on those. And then otherwise it's just figuring out the relationship of what can be added to core, Claw Hub, and having security within Claw Hub, things like that. You read the recent blog post that Mary did on the OpenClaw blog. It talks a lot more about the plugin part of it.
+
+97
+00:46:04,450 --> 00:46:09,750
+Shadow: Jason, I see yours. I was going to do it after questions because I remembered like three questions ago.
+
+98
+00:46:13,230 --> 00:46:37,710
+Shadow: I assume for things like companies want to sponsor events like ASUS wanted to do on Reddit will work with one of the foundation team or employees as well. Yes, that is actually one of the big things that we want to be able to do. Because technically right now the Reddit is unofficial but like it shouldn't be. So, that's part of what we're wanting to do is be able to empower that to happen as well.
+
+99
+00:46:41,750 --> 00:47:02,690
+Shadow: Why are CS losing the official logo? Because I want to have it be on the maintainers because they have nothing right now. But I want to replace it with something that's just as official looking but more community staff. Because again, that's part of what I was talking about. This is the volunteer team that's supporting it. So,
+
+100
+00:47:04,810 --> 00:47:14,690
+Shadow: that's why. Unfortunately, Krill is so bad at this. But I'm going to go through our branding stuff that we have and grab from there.
+
+101
+00:47:18,570 --> 00:47:29,270
+Shadow: So, that is the reasoning for that. It's something that I meant to do a couple of months ago and it just kept getting put off and put off and put off. Yeah, we're definitely not going with only Krill's ideas. None of those were good.
+
+102
+00:47:31,430 --> 00:47:37,070
+Shadow: I'm going to use from our branding stuff that we had back when we made the Flaw logo. Just...
+
+103
+00:47:43,310 --> 00:47:49,230
+Shadow: do that so it gets marked. Who are the paid maintainers under the foundation?
+
+104
+00:47:52,570 --> 00:48:26,040
+Shadow: It hasn't been fully announced yet so I won't you know, hey, here they are. It's something I'll also get you as well when we're more into the foundation and working with them. You will have that. I can't say when it'll be but you'll have it. No, the lead maintainers are not all foundation staff. I'm sure you could probably guess who a lot of the foundation maintainers are but that's not directly what the role is.
+
+105
+00:48:28,340 --> 00:48:36,560
+Shadow: Do you said does it matter which ones are paid or not? Not really which is part of why I don't want to go hey here are the people you will go talk to them all.
+
+106
+00:48:40,640 --> 00:49:12,960
+Shadow: Yeah, OpenAI staff have it as well. It's going to be a community management role at the foundation which she'll apply to. So for right now the primary hiring at the foundation is just adding more maintainers and it is only hiring out of the existing pool of volunteer maintainers for now. That may change long term down the road but they're wanting to focus on scaling up the actual OpenCLUDS self for now.
+
+107
+00:49:19,570 --> 00:49:26,670
+Shadow: I'll put in my own question. Why is the automod bypass role exist? Wait, hold on. Why didn't it go?
+
+108
+00:49:29,420 --> 00:49:32,900
+Shadow: Why does oh this will there we go. I can ask anonymously.
+
+109
+00:49:39,920 --> 00:50:30,020
+Shadow: Submit question. Go back to question. Oh look a new question. Why does the automod bypass role exist and can we delete it? Yes. We are deleting the automod bypass role. It's something that has served well. I don't have any complaints about its existing system but as the community has calmed down and has become more mature what we are going to do instead is set up a system to where the more you talk and engage in the community the more permissions that you will get. So you know if you've been talking for a couple of days you'll be able to send images you'll be able to do polls different things like that. If you're bought by staff we're using KI for that of course. So that is something that will be set up sometime later this week. Working on that.
+
+110
+00:53:11,560 --> 00:53:15,600
+Shadow: The questions that was put in was oh come back I lost my tab.
+
+111
+00:53:19,270 --> 00:53:28,270
+Shadow: Win face reveal. So what I've done is gotten you a picture of myself to be able to share with everybody.
+
+112
+00:53:36,110 --> 00:53:38,250
+Shadow: There you go. This is me.
+
+113
+00:53:42,790 --> 00:53:48,130
+Shadow: This is a picture I am. This is a couple years outdated by now. But this is me.
+
+114
+00:53:52,780 --> 00:53:57,940
+Shadow: Nah that's blonde. It's just like a strawberry blonde. Not ginger.
+
+115
+00:54:18,590 --> 00:54:20,910
+Shadow: Someone else asked what is life. 42.
+
+116
+00:54:24,850 --> 00:54:48,570
+Shadow: If the new discord lead will be taking the mantle for me will you still be the community lead. Yes. I'll still be over everything as the administrator is the lead. Somebody else is going to be taking the role very specifically of moderation. Just in the goal of delegating more that I can focus on leading overall especially with more with the foundation.
+
+117
+00:54:51,210 --> 00:54:54,190
+Shadow: So I'll still be here. I'll still be making final says.
+
+118
+00:54:58,360 --> 00:55:02,430
+Shadow: But just delegating that out more.
+
+119
+00:55:59,430 --> 00:56:00,250
+Shadow: I'm fully back now.
+
+120
+00:56:02,850 --> 00:56:12,350
+Shadow: Questions, thoughts, concerns, ideas. We are missing some odds here. Yes. There are currently 13 here. And I believe we have 17 overall. So we're missing a few.
+
+121
+00:56:16,780 --> 00:56:23,700
+Shadow: Ablak is not here. Andy was late. Strife was late.
+
+122
+00:56:36,160 --> 00:56:38,860
+Shadow: Here's the list. Cameron is not here.
+
+123
+00:56:43,090 --> 00:56:48,170
+Shadow: Other than that, Zippy is not here. Other than that, we got just about everybody.
+
+124
+00:57:08,090 --> 00:57:16,710
+Shadow: Cool. Okay. Finish DMing with the person who's the new Discord lead. Anybody want to guess out of the people who are here? You'll never figure it out.
+
+125
+00:57:19,230 --> 00:57:20,270
+Shadow: And no, it's not Jason.
+
+126
+00:57:36,250 --> 00:57:38,130
+Shadow: No, Julian is leading the helper side.
+
+127
+00:57:45,300 --> 00:58:28,300
+Shadow: Yeah, it's Strife. Strife's going to be taking over my part of all the moderation and handling all that. But I've worked with him literally, I don't know, when I start working with you, 2021, I want to say. Yeah, probably 2021. 22. God, it's been so many years. So, yeah, Strife knows what I'll think more than me sometimes. So, he'll be taking that over and leading that side. I'll still be around. If anything, I'll be more around. But if y'all are having issues with appeals or things like that, Strife is who you can pull into that.
+
+128
+00:58:33,230 --> 00:58:38,450
+Shadow: All of this will be updated in the community repo tonight or tomorrow morning.
+
+129
+00:58:51,450 --> 00:58:53,310
+Shadow: Yeah, he'll still have bot manager stuff.
+
+130
+00:58:57,830 --> 00:59:46,650
+Shadow: Jim, that's something I was saying earlier, not yet. We're going to wait for the foundation stuff. None of us think we're in crisis. We're not worried at all. We don't need to constantly be chasing hype. That's not what OpenClaw does or what we need. That's for founders who don't have a good product, in my opinion, to put it bluntly. We're not concerned. We're not worried. We have plenty of long-term support. We don't have to be the super, ultra, most viral product. If anything, it probably harmed us more than anything else. We're going to work on ourselves. We're building a good product. Instead of chasing hype and then freaking out when the hype declines. And then besides that, we're going to hang out and wait for me to finish with the foundation stuff.
+
+131
+00:59:48,970 --> 00:59:54,130
+Shadow: And that will help encourage. Not even encourage. It'll help make that easier as well.
+
+132
+00:59:56,150 --> 01:00:07,690
+Shadow: Where's the question I saw? Is Strife still a bot manager if he's leading the Discord team? Yeah. Bot manager is separate from the team system now. Maybe the configuration team plus a couple more will have that access.
+
+133
+01:00:41,790 --> 01:00:50,350
+Shadow: Do CS get that Twitter thingy? If you mean the affiliate badge? No, those are extremely expensive. What's the current cost?
+
+134
+01:00:56,710 --> 01:01:16,650
+Shadow: It is an extra $600 a year per person that has the badge. So there are a lot of maintainers that don't even have it. The organization cost is $1,000 a month plus $50 a month for each person that has the badge. It is extremely expensive.
+
+135
+01:01:19,760 --> 01:01:38,420
+Shadow: Let's see. Let me log into the OpenClaw account. Well, to clear, it's not just a badge. Everybody who has the badge also gets the highest tier of X Premium. So it does have some things that come with it. And for each person with the $50,
+
+136
+01:01:40,440 --> 01:01:42,680
+Shadow: X Premium itself is about that same price.
+
+137
+01:01:46,580 --> 01:02:09,480
+Shadow: Let's see. If I go to affiliates, where is this organization? You get the one included by default, which is the one that's on the actual org account itself. But yeah, we get the super grok and all of that and the highest premium tier as well for each person. Where's the affiliate list?
+
+138
+01:02:12,760 --> 01:02:13,640
+Shadow: Is this tab?
+
+139
+01:02:15,800 --> 01:02:19,420
+Shadow: Yeah, here it is. Affiliates. Let me,
+
+140
+01:02:27,450 --> 01:02:36,750
+Shadow: here is the list of affiliates. 26 right now with $50 a month for each. So we keep this pretty lean right now.
+
+141
+01:02:40,480 --> 01:03:04,980
+Shadow: And like, you know, we have 70-something maintainers, 26 have the badge. So it's just if they actually need the badge, anti-impersonation, things like that. But it's a lot. It's a lot of money and we don't just blow it all away. so. Wow, Andy over here asking a question outside of the questions form. Everybody shame him.
+
+142
+01:03:08,080 --> 01:03:27,920
+Shadow: Where was the actual question? Broad-emitting positions, are there any mod-related positions that we rely on that may expire if we don't do X enough times and Y? No. The only thing we have is a generic activity quota. And it is specifically nebulous. Let me pull up the exact wording.
+
+143
+01:03:46,080 --> 01:03:51,660
+Shadow: Where's the activity guidelines? Somebody remember? I know they're in the repo somewhere.
+
+144
+01:03:53,730 --> 01:03:54,310
+Shadow: Is it here?
+
+145
+01:03:56,700 --> 01:05:11,740
+Shadow: Ah, here it is. Activity expectations. Stay reasonably active and engage with the community. This can include sending messages, being present in voice, answering support questions, or participating in mod discussions. If you will be away for multiple days or unable to complete your duties, and this is on the old team structure, post an activity log in your team channel, and ping your team leads so leads can reassign coverage. There's no hard length to a leave of absence length, but please avoid radio silence. And there's a format for you to use there. I don't have a you have to check in once per week. You have to be in the chat once per day. What I do have is a be active, check your mod pings once a day in the community staff channel, be around. But I'm not going to enforce any like you have to clock in three hours per week in order to stay active. Stuff happens, everybody has different life, some people are working full time, some people have multiple jobs, a lot of people have their own businesses that they're running as founders. So there's nothing, no hard limits or anything like that. But be active, be present, don't be like the person I'm sending an inactivity message to tonight.
+
+146
+01:05:18,360 --> 01:05:29,500
+Shadow: Yeah, and you know, don't ignore automod stuff when you're online. Even if somebody else can do it. I'm going to show you this as well, if I can find it.
+
+147
+01:05:40,110 --> 01:05:52,270
+Shadow: I'm going to show a sleep because it was a test. If there is an inactivity, this is what happens. What the heck? Where'd my window go? Did it hide under this one?
+
+148
+01:05:56,490 --> 01:05:59,850
+Shadow: Where's my window? My Discord literally just disappeared.
+
+149
+01:06:04,780 --> 01:06:43,880
+Shadow: This is what happens. Permit will send you a message saying, hey, this is your one activity warning, you've been inactive, we need a clear response. It'll link the activity expectations and the LOA presence, and you have two days to respond, and we'll discuss from there what your activity is looking like, things like that. So this will be how you'll know if you'll be inactive. you do get one warning per reasonable amount of time. And if it keeps happening after that, we do remove you from the community staff team. So be active, but active is intentionally vague because everybody's situation is a little bit different.
+
+150
+01:06:53,820 --> 01:07:07,400
+Shadow: When in doubt, reach out. Bingo. IRL always takes priority. But, you know, IRL doing nothing does not take priority.
+
+151
+01:07:43,620 --> 01:07:45,420
+Shadow: Yeah, that applies to everybody.
+
+152
+01:07:48,040 --> 01:07:50,260
+Shadow: Technically, I am the lead of the leads.
+
+153
+01:07:53,340 --> 01:07:56,060
+Shadow: But, yeah, do be active as well.
+
+154
+01:08:09,450 --> 01:08:14,490
+Shadow: Yeah, Asleep, I think you are the youngest here. I'm one of the youngest, too, technically.
+
+155
+01:08:24,860 --> 01:08:25,840
+Shadow: I am 23.
+
+156
+01:08:30,270 --> 01:08:36,610
+Shadow: I'll put it in chat for people who are ever trying to scroll back. I turned 23 three months ago.
+
+157
+01:08:39,030 --> 01:08:40,910
+Shadow: Asleep, you literally told me happy birthday.
+
+158
+01:08:49,000 --> 01:09:25,140
+Shadow: Yeah, I'm 23. I have been working in the Discord space, running servers, both professionally and volunteer, since 2018, I want to say. It was like three months after my join date, whatever that is. Yeah, 2018. So summer of 2018 is when I started running servers as a job. And building bots as well. I've made a lot of different game bots. For example, simulating things like mafia within Discord, things like that. Started Boabay back in 2022. So, been around for a long while.
+
+159
+01:09:30,480 --> 01:09:34,380
+Shadow: I'm 23 in human years. I translated it for you guys.
+
+160
+01:09:41,040 --> 01:09:57,980
+Shadow: Strife is my lackey. He just follows me around and does things that I need. That's literally how he got added to the OpenClock staff team. But, you know, I trust him. I'd give Staff the password, or I'd give Strife the past game account if I had to.
+
+161
+01:10:01,040 --> 01:10:12,060
+Shadow: Anything y'all need if I'm never around, Strife is your guy. And really, Julian's getting that way too. Andy's getting that way too, of already knowing what it is I'm going to want.
+
+162
+01:10:26,060 --> 01:10:30,000
+Shadow: Notice how I said his sleep is getting that way. He's not at all.
+
+163
+01:10:32,620 --> 01:10:48,200
+Shadow: Yes, Strife had access to my OpenClock and he started playing with my stuff. Yeah, his sleep got added because we had a flood of like 300 people join all at once in the OpenClock server. So he was my help. I need help.
+
+164
+01:10:50,480 --> 01:10:53,560
+Shadow: Yeah, I was back when we were under like 2K members.
+
+165
+01:10:56,080 --> 01:11:02,680
+Shadow: Just gossip. How did you get acquainted with Peter? Yeah, I'll tell this story. I think only JSON and then my buffet people know this.
+
+166
+01:11:04,860 --> 01:12:38,380
+Shadow: So Thanksgiving in the U.S., the third week of November, 2025. That was when what was then called Warlay, WhatsApp Relay for Claude Code was started. I have always been interested ever since GPT-3 came out of building my own Jarvis assistant. And it never had really worked. AI had never really gotten to that point. But when I saw Warlay he created, super, super interested. But he was making his for WhatsApp. And so I decided to create my own project called Ruby that was going to be the same thing but in Discord. And I got an original version working really well, actually, that proxied Claude code to Discord. back at that time I was only on the $20 a month Claude subscription and it didn't really last that long, especially for an agent that was doing heartbeating every 30 minutes. So I used up my weekly limit in like a day and a half and never really took it anywhere. But I reached out to Peter then in DMs on X and told him about it and said I was super excited about what he was doing. And I kept working on Ruby. I had my prototype finished in about two days overall. Very, very much hand coded with a little bit of AI assistance too. And so that was really fun actually. It was my first time really using AI less of as a consumer and more as a developer implementing it.
+
+167
+01:12:40,900 --> 01:12:50,680
+Shadow: So that was really fun. Come December, the week before Christmas, I decided to stop working on my own setup.
+
+168
+01:12:54,060 --> 01:14:09,340
+Shadow: with Ruby and because Peter had just added support for Telegram to Warlay. And so I decided that I would PR my support for Discord into his project instead. That was December 16th or so, I want to say. But it's like PR number 23 on the repo or something. Way long ago. So I did that as an Discord support. He was very cautious at first because it was the first setup of group chats for OpenClaw. I created that concept. His was all DMs up until that point. But he took a little while, thought about the different security things would be needed, and merged it in right after Christmas, added my Discord support. Fast forward to January 1st, Peter had been using the Discord stuff for a couple of days, and he created a Discord server called Friends of the Crustacean. He added his bot into it, and he posted the invite on his bot's Twitter account, which was very small at the time. Several of us joined in right away. It was probably 50 or 60 of us. And this was before any of the security stuff, so we were all just sitting there chatting with his bot.
+
+169
+01:14:13,240 --> 01:14:29,900
+Shadow: Peter went to sleep that night. We kept playing with his bot. We were opening PRs. We actually got his bot, which is Claude, to open his own PR, which was super, super fun. It is this PR.
+
+170
+01:14:33,740 --> 01:15:32,980
+Shadow: PR number 100 was opened by his bot using his account. And that was when Peter realized he needed to add security stuff. And I submitted a bunch of PRs at this point. I was the top contributor besides Peter. And so he invited me to become a maintainer. He invited somebody else named Josh to also be a maintainer as well. Josh isn't around much anymore, but he does run the NYX stuff in the Golden Pass channel. So two of us were the first maintainers. And then because he knew that I already did a bunch of Discord stuff, talked to the maintainer channel, and I started running a lot of the Discord stuff. A few weeks later, we made it fully official, adding in the moderation team, which was added out of necessity, and adding me as the full Discord admin. And it's just grown and grown from there. So yeah, I met Peter because of OpenClaw. We started working together with OpenClaw.
+
+171
+01:15:35,290 --> 01:15:44,570
+Shadow: And that is the story. So yeah, it's my fault that we have any kind of security stuff, but it's also my fault that we have Discord today.
+
+172
+01:15:51,590 --> 01:16:06,070
+Shadow: Can I also slap JSON with a trout? You know, that sounds like a great idea. I will add that in with the Hermit update. Everybody except JSON on the community staff team will get slap permission.
+
+173
+01:16:22,380 --> 01:16:40,980
+Shadow: Cool. If nobody has anything else, there are a couple of questions that were submitted that I left unanswered because those are things that will come after more of the foundation stuff. And y'all will, everything that happens, y'all will know. So if nobody has anything else, I think we will call that meeting there.
+
+174
+01:16:46,820 --> 01:16:55,860
+Shadow: Timeline on foundation stuff at the very earliest, Tuesday, at the very latest, like the end of next week. So soon.
+
+175
+01:17:02,970 --> 01:17:05,550
+Shadow: Yeah. Good stuff.
+
+176
+01:17:07,720 --> 01:17:43,440
+Shadow: All of the role update, all of the things will be announced in the Theos update channel. Something I'll go ahead and request now, when y'all read the announcement messages, put a reaction on it because it just helps me see that people are active and people are seeing them. Even if it's just a thumbs up, I don't know, a dancing emoji, put something on them because that'll help me a lot. And then the leads will start posting there as well for different things. So, all right, we'll go ahead and wrap it up there. Stay tuned for a bunch of announcements this week.
+
+177
+01:17:45,510 --> 01:17:46,270
+Shadow: See y'all.
